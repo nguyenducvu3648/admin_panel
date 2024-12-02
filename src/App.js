@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { Admin, Resource } from 'react-admin';
+import dataProvider from './dataProvider';
+import Sidebar from './components/SideBar';
+import Navbar from './components/Navbar';
+import ShoeList from './components/ShoeList';
+import Dashboard from './components/Dashboard';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+const App = () => {
+    return (
+        <Admin 
+            dataProvider={dataProvider} 
+            dashboard={Dashboard} // Sử dụng dashboard tùy chỉnh
+            appBar={Navbar} // Nếu bạn muốn sử dụng Navbar tùy chỉnh
+            sidebar={Sidebar} // Nếu bạn muốn sử dụng Sidebar tùy chỉnh
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+            <Resource name="shoes" list={ShoeList} />
+        </Admin>
+    );
+};
 
 export default App;
