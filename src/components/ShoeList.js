@@ -6,10 +6,11 @@ const ShoeList = () => {
     return (
         <List>
             <Datagrid>
-                <TextField source="id" />
+                <TextField source="id" />  {/* Đây là model */}
+                <TextField source="name" />
                 <TextField source="model" />
-                <TextField source="brand" />
                 <TextField source="price" />
+                <TextField source="modelColor" />
                 <EditButton basePath="/shoes" />
                 <DeleteButton basePath="/shoes" />
             </Datagrid>
